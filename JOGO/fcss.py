@@ -84,4 +84,5 @@ def jogar_denovo():
     if a =='s':
         return True
     if a=='n':
+        print('Até a proxima')
         return False

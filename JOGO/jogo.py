@@ -22,8 +22,8 @@ while gameon:
 
         if resposta == sorteado: #ganhou
             print('Parabens voce acertou')
-            
-
+            gameon=fcss.jogar_denovo()
+            break
         #elif resposta in DADOS_normalizados.keys(): #se o pais existe
 
         #elif resposta == 'dica':
