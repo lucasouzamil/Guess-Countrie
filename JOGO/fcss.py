@@ -78,7 +78,7 @@ def haversine(r, phi1,lambda1,phi2,lambda2):
 
 def jogar_denovo():
     a=input('deseja jogar denovo(s/n)')
-    while a!='s' or a!='n':
+    while a!='s' and a!='n':
         print('a escolha deve ser s ou n')
         a=input('Deseja jogar denovo?(s/n)')   
     if a =='s':
