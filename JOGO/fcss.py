@@ -70,11 +70,27 @@ def haversine(r, phi1,lambda1,phi2,lambda2):
     lambda2rad = math.radians(lambda2graus)    #¦
 
     primeiroelemento = (math.sin((phi2rad-phi1rad)/2))**2
-    segundoelemento  = math.cos(phi1rad)math.cos(phi2rad)((math.sin((lambda2rad-lambda1rad)/2))**2)
+    segundoelemento  = math.cos(phi1rad)*math.cos(phi2rad)((math.sin((lambda2rad-lambda1rad)/2))**2)
 
     d = 2*raio*math.asin((primeiroelemento+segundoelemento)**0.5)
 
     return d
+
+def printinventario(inv):
+    dist = inv['distancias']
+    dics = inv['dicas']
+
+    print('Distâncias:')
+    if dist != []:
+        for dists in dist:
+            print(dists)
+    print('')
+
+    print('Dicas:')
+    if dics != []:
+        for dic in dics:
+            print(dic)
+    print('')
 
 def jogar_denovo():
     a=input('deseja jogar denovo(s/n)')
