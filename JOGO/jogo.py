@@ -20,7 +20,9 @@ while gameon:
 
         resposta = input('Qual seu palpite?')
 
-        if resposta == paissorteado: #ganhou
+        if resposta == sorteado: #ganhou
+            print('Parabens voce acertou')
+            
 
         #elif resposta in DADOS_normalizados.keys(): #se o pais existe
 
