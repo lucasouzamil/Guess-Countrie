@@ -29,9 +29,10 @@ while gameon:
         resposta = input('Qual seu palpite?')
 
         if resposta == sorteado: #ganhou
-            tentativas = 0
-            gameon = False
-
+            print('Parabens voce acertou')
+            gameon=fcss.jogar_denovo()
+            break
+        
         #elif resposta in DADOS_normalizados.keys(): #se o pais existe
 
         #elif resposta == 'dica':

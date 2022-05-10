@@ -91,3 +91,14 @@ def printinventario(inv):
         for dic in dics:
             print(dic)
     print('')
+
+def jogar_denovo():
+    a=input('deseja jogar denovo(s/n)')
+    while a!='s' or a!='n':
+        print('a escolha deve ser s ou n')
+        a=input('Deseja jogar denovo?(s/n)')   
+    if a =='s':
+        return True
+    if a=='n':
+        print('Até a proxima')
+        return False
