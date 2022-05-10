@@ -1,10 +1,33 @@
 import json
 import math
 import random
+import fcss
 
 with open('JOGO/DADOS.json', 'r') as data:
-    dados = data.read()
+    DADOS = data.read()
 
-dados = json.loads(dados)
+DADOS = json.loads(DADOS)
 
-print(dados)
+DADOS_normalizados = fcss.normaliza(DADOS)
+
+gameon = True
+while gameon:
+
+    tentivas = 20
+    sorteado = random.choice(DADOS_normalizados.keys())
+
+    while tentivas > 0:
+
+        resposta = input('Qual seu palpite?')
+
+        if resposta == paissorteado: #ganhou
+
+        #elif resposta in DADOS_normalizados.keys(): #se o pais existe
+
+        #elif resposta == 'dica':
+
+        #elif resposta == 'desisto':
+
+        #elif resposta == 'inventario':
+
+        #else:

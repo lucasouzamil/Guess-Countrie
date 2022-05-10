@@ -1,4 +1,6 @@
+import math
 import random
+import math
 
 def sorteia_letra(palavra,lista):
     listaespecial=['.', ',', '-', ';', ' ']
