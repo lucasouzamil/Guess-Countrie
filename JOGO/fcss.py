@@ -1,6 +1,7 @@
 import math
 import random
 import math
+from termcolor import colored, cprint
 
 def sorteia_letra(palavra,lista):
     listaespecial=['.', ',', '-', ';', ' ']
@@ -77,13 +78,35 @@ def haversine(r, phi1,lambda1,phi2,lambda2):
     return d
 
 def printinventario(inv):
+
+    print_red = lambda x: cprint(x,'red')
+    print_green  = lambda x: cprint(x,'green')
+    print_purple  = lambda x: cprint(x,'purple')
+    print_orange = lambda x: cprint(x,'pink')
+    print_blue  = lambda x: cprint(x,'blue')
+    print_yellow  = lambda x: cprint(x,'yellow')
+
     dist = inv['distancias']
     dics = inv['dicas']
 
+    distanciasemordem = sorted(dist.keys())
+
     print('Distâncias:')
-    if dist != []:
-        for dists in dist:
-            print(dists)
+    if dist != {}:
+        for distancias in distanciasemordem:
+            if distancias <= 1200:
+                print_blue(dist[distancias])
+            elif distancias <= 3000:
+                print_green(dist[distancias])
+            elif distancias <= 6000:
+                print_yellow(dist[distancias])
+            elif distancias <= 9000:
+                print_orange(dist[distancias])
+            elif distancias <= 12000:
+                print_red(dist[distancias])
+            elif distancias > 12000:
+                print_purple(dist[distancias])
+
     print('')
 
     print('Dicas:')
@@ -94,13 +117,17 @@ def printinventario(inv):
 
 def jogar_denovo():
     a=input('deseja jogar denovo(s/n)')
+    print('')
     while a!='s' and a!='n':
         print('a escolha deve ser s ou n')
-        a=input('Deseja jogar denovo?(s/n)')   
+        print('')
+        a=input('Deseja jogar denovo?(s/n)')  
+        print('') 
     if a =='s':
         return True
     if a=='n':
         print('Até a proxima')
+        print('')
         return False
 
 def template():

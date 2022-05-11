@@ -2,6 +2,7 @@ import json
 import math
 import random
 import fcss
+from termcolor import colored, cprint
 
 
 
@@ -19,7 +20,7 @@ EARTH_RADIUS = 6371
 gameon = True
 while gameon:
 
-    inventario = {'distancias':[], 'dicas': []}
+    inventario = {'distancias':{}, 'dicas': []}
 
     tentivas = 20
     sorteado = random.choice(todospaises)
@@ -34,11 +35,12 @@ while gameon:
 
     while tentivas > 0:
 
-        fcss.printinventario(inventario)
         resposta = input('Qual seu palpite? ')
+        print('')
 
         if resposta == sorteado: #ganhou
             print('Parabens voce acertou')
+            print('')
             gameon=fcss.jogar_denovo()
             break
         
@@ -47,13 +49,21 @@ while gameon:
             latreposta = DADOS_normalizados[resposta]['geo']['latitude']
             longreposta = DADOS_normalizados[resposta]['geo']['longitude']
 
-            print(latreposta)
-            print(longreposta)
+            distanciaint = int(fcss.haversine(EARTH_RADIUS, latsorteado,longsorteado,latreposta,longreposta))
+            print(distanciaint)
+            distanciafloat = float(distanciaint/1000)
+            distanciastring = str(distanciafloat)
+        
+            if len(distanciastring) == 3:
+                distanciastring = distanciastring+'0'
+            elif len(distanciastring) == 5:
+                distanciastring = ' ' + distanciastring
+            elif len(distanciastring) == 4:
+                distanciastring = ' '+' '+distanciastring
 
-            distancia = int(fcss.haversine(EARTH_RADIUS, latsorteado,longsorteado,latreposta,longreposta))
-            distancia = float(distancia/1000)
+            inventario['distancias'][distanciaint] = (f'{distanciastring} km -> {resposta}')
 
-            inventario['distancias'].append(f'{distancia} km -> {resposta}')
+            fcss.printinventario(inventario)
 
             tentivas -= 1  
 
@@ -64,10 +74,12 @@ while gameon:
 
             certeza = ''
             while certeza != 's' or certeza != 'n':
-
                 certeza = input('Tem certeza de que vai desistir da rodada? [s/n] ')
+                print('')
+
                 if certeza == 's':
                     print(f'Que deselgante desistir, o país era {sorteado}')
+                    print('')
                     break
 
                 elif certeza == 'n':
@@ -75,6 +87,7 @@ while gameon:
 
                 else:
                     print('Digite (s) ou (n)')
+                    print('')
             
             if certeza == 's':
                 gameon = fcss.jogar_denovo()
