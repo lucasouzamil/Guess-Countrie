@@ -110,9 +110,10 @@ def printinventario(inv):
     print('')
 
     print('Dicas:')
-    if dics != []:
-        for dic in dics:
-            print(dic)
+    if dics != {}:
+        for i in dics.keys():
+            print(i)
+            print(inv['dicas'][i])
     print('')
 
 def jogar_denovo():
