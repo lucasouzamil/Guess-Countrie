@@ -29,7 +29,7 @@ while gameon:
 
     bandeira={}
     for i in DADOS_normalizados[sorteado]['bandeira'].keys(): # excluindo valores iguais a 0
-        if DADOS_normalizados[sorteado]['bandeira'][i]>0:
+        if DADOS_normalizados[sorteado]['bandeira'][i]>0 and i!='outros':
             bandeira[i]=DADOS_normalizados[sorteado]['bandeira'][i]
     capital=DADOS_normalizados[sorteado]['capital'] # Achando a capital
     area=DADOS_normalizados[sorteado]['area']#achando a area
