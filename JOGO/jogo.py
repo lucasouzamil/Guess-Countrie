@@ -54,7 +54,7 @@ while gameon:
 
             inventario['distancias'].append(f'{distancia} km -> {resposta}')
 
-            tentivas -= 1
+            tentivas -= 1  
 
 
 
