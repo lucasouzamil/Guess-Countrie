@@ -29,6 +29,7 @@ while gameon:
     longsorteado = DADOS_normalizados[sorteado]['geo']['longitude']
 
     print(DADOS_normalizados[sorteado])
+
     bandeira={}
     for i in DADOS_normalizados[sorteado]['bandeira'].keys(): # excluindo valores iguais a 0
         if DADOS_normalizados[sorteado]['bandeira'][i]>0:
@@ -44,10 +45,15 @@ while gameon:
     dic_dicas['Area']={'informacoes':area, 'custo':6,'numero':'2'}
     dic_dicas['Populacao']={'informacoes':populacao,'custo':5,'numero':'3'}
     dic_dicas['Continente']={'informacoes':continente,'custo':7, 'numero':'4'}
+
+
+    fcss.template()
+
+
     while tentivas > 0:
 
         fcss.printinventario(inventario)
-        resposta = input('Qual seu palpite?')
+        resposta = input('Qual seu palpite? ')
 
         if resposta == sorteado: #ganhou
             print('Parabens voce acertou')
@@ -65,11 +71,32 @@ while gameon:
             distancia = int(fcss.haversine(EARTH_RADIUS, latsorteado,longsorteado,latreposta,longreposta))
             distancia = float(distancia/1000)
 
-
             inventario['distancias'].append(f'{distancia} km -> {resposta}')
 
             tentivas -= 1  
 
+        elif resposta == 'inventario':
+            fcss.printinventario(inventario)
+
+        elif resposta == 'desisto': #se o jogador desiste
+
+            certeza = ''
+            while certeza != 's' or certeza != 'n':
+
+                certeza = input('Tem certeza de que vai desistir da rodada? [s/n] ')
+                if certeza == 's':
+                    print(f'Que deselgante desistir, o país era {sorteado}')
+                    break
+
+                elif certeza == 'n':
+                    break
+
+                else:
+                    print('Digite (s) ou (n)')
+            
+            if certeza == 's':
+                gameon = fcss.jogar_denovo()
+                break
 
 
         elif resposta == 'dica':
@@ -106,5 +133,6 @@ while gameon:
         #elif resposta == 'desisto':
 
         #elif resposta == 'inventario':
+        #elif resposta == 'dica':
 
         #else:
