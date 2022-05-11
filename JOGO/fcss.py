@@ -1,7 +1,6 @@
 import math
 import random
 import math
-from termcolor import colored, cprint
 
 def sorteia_letra(palavra,lista):
     listaespecial=['.', ',', '-', ';', ' ']
@@ -79,13 +78,6 @@ def haversine(r, phi1,lambda1,phi2,lambda2):
 
 def printinventario(inv):
 
-    print_red = lambda x: cprint(x,'red')
-    print_green  = lambda x: cprint(x,'green')
-    print_purple  = lambda x: cprint(x,'purple')
-    print_orange = lambda x: cprint(x,'pink')
-    print_blue  = lambda x: cprint(x,'blue')
-    print_yellow  = lambda x: cprint(x,'yellow')
-
     dist = inv['distancias']
     dics = inv['dicas']
 
@@ -95,17 +87,23 @@ def printinventario(inv):
     if dist != {}:
         for distancias in distanciasemordem:
             if distancias <= 1200:
-                print_blue(dist[distancias])
+                print('\033[34m' + dist[distancias] + '\033[0m')
+                #print_blue(dist[distancias])
             elif distancias <= 3000:
-                print_green(dist[distancias])
+                print('\033[32m' + dist[distancias] + '\033[0m')
+                #print_green(dist[distancias])
             elif distancias <= 6000:
-                print_yellow(dist[distancias])
+                print('\033[93m' + dist[distancias] + '\033[0m')
+                #print_yellow(dist[distancias])
             elif distancias <= 9000:
-                print_orange(dist[distancias])
+                print('\033[33m' + dist[distancias] + '\033[0m')
+                #print_orange(dist[distancias])
             elif distancias <= 12000:
-                print_red(dist[distancias])
+                print('\033[31m' + dist[distancias] + '\033[0m')
+                #print_red(dist[distancias])
             elif distancias > 12000:
-                print_purple(dist[distancias])
+                print('\033[35m' + dist[distancias] + '\033[0m')
+                #print_purple(dist[distancias])
 
     print('')
 

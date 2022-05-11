@@ -2,15 +2,11 @@ import json
 import math
 import random
 import fcss
-from termcolor import colored, cprint
-
-
 
 with open('JOGO/DADOS.json', 'r') as data:
     DADOS = data.read()
 DADOS = json.loads(DADOS)
 DADOS_normalizados = fcss.normaliza(DADOS)
-
 todospaises = []
 for pais in DADOS_normalizados.keys():
         todospaises.append(pais)
@@ -54,6 +50,8 @@ while gameon:
     while tentivas > 0:
 
         resposta = input('Qual seu palpite? ')
+        resposta = resposta.lower()
+        print(resposta)
         print('')
 
         if resposta == sorteado: #ganhou
