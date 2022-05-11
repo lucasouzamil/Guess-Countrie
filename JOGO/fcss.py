@@ -108,9 +108,14 @@ def printinventario(inv):
     print('')
 
     print('Dicas:')
-    if dics != []:
-        for dic in dics:
-            print(dic)
+    if dics != {}:
+        for i in dics.keys():
+            if i=='Letra da capital':
+                a=','.join(inv['dicas'][i])
+            else:
+                a=inv['dicas'][i]
+            print(i,a)
+
     print('')
 
 def jogar_denovo():

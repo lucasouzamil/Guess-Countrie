@@ -48,7 +48,7 @@ while gameon:
 
 
     while tentivas > 0:
-
+        fcss.printinventario(inventario)
         resposta = input('Qual seu palpite? ')
         resposta = resposta.lower()
         print(resposta)
@@ -66,7 +66,6 @@ while gameon:
             longreposta = DADOS_normalizados[resposta]['geo']['longitude']
 
             distanciaint = int(fcss.haversine(EARTH_RADIUS, latsorteado,longsorteado,latreposta,longreposta))
-            print(distanciaint)
             distanciafloat = float(distanciaint/1000)
             distanciastring = str(distanciafloat)
         
@@ -126,24 +125,24 @@ while gameon:
             if dica_escolhida=='0':
                 tentivas-=4
                 inventario['dicas']['Cor da Bandeira']=dic_dicas['Cor da bandeira']['informacoes']
+              
             if dica_escolhida=='1':
                 tentivas-=3
-                letra=fcss.sorteia_letra(capital,letras_sorteadas)
+                letra=fcss.sorteia_letra(capital,letras_sorteadas).lower()
                 letras_sorteadas.append(letra)
                 inventario['dicas']['Letra da capital']=letras_sorteadas
             if dica_escolhida=='2':
                 tentivas-=6
                 inventario['dicas']['area']=area
+              
             if dica_escolhida=='3':
                 tentivas-=5
                 inventario['dicas']['populacao']=populacao
+                
             if dica_escolhida=='4':
                 tentivas-=7
                 inventario['dicas']['continente']=continente
                     
-        #elif resposta == 'desisto':
 
-        #elif resposta == 'inventario':
-        #elif resposta == 'dica':
-
-        #else:
+        else:
+            print('Esse pais nao existe\n')
