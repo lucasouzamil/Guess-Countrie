@@ -144,9 +144,6 @@ while gameon:
                 tentivas-=7
                 inventario['dicas']['continente']=continente
                     
-        #elif resposta == 'desisto':
 
-        #elif resposta == 'inventario':
-        #elif resposta == 'dica':
-
-        #else:
+        else:
+            print('Esse pais nao existe\n')

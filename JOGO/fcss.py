@@ -112,7 +112,10 @@ def printinventario(inv):
     print('Dicas:')
     if dics != {}:
         for i in dics.keys():
-            a=','.join(inv['dicas'][i])
+            if i=='Letra da capital':
+                a=','.join(inv['dicas'][i])
+            else:
+                a=inv['dicas'][i]
             print(i,a)
 
     print('')
