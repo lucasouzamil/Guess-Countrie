@@ -48,7 +48,7 @@ while gameon:
 
 
     while tentivas > 0:
-        fcss.printinventario(inventario)
+
         resposta = input('Qual seu palpite? ')
         resposta = resposta.lower()
         print(resposta)
@@ -114,7 +114,7 @@ while gameon:
             dic_dicas_possiveis={}
             for i in dic_dicas.keys():
                 if dic_dicas[i]['custo']<tentivas:
-                    print('{0}:{1}---->{2} tentativas'.format(dic_dicas[i]['numero'],i,dic_dicas[i]['custo']))
+                    print('{0}:{1} ----> {2} tentativas'.format(dic_dicas[i]['numero'],i,dic_dicas[i]['custo']))
                     dic_dicas_possiveis[i]=dic_dicas[i]['numero']
             print('5: Sem dicas')
             dica_escolhida=''
@@ -142,7 +142,8 @@ while gameon:
             if dica_escolhida=='4':
                 tentivas-=7
                 inventario['dicas']['continente']=continente
-                    
+            
+            fcss.printinventario(inventario)
 
         else:
             print('Esse pais nao existe\n')
