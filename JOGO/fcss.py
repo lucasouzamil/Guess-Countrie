@@ -88,22 +88,21 @@ def printinventario(inv):
         for distancias in distanciasemordem:
             if distancias <= 1200:
                 print('\033[34m' + dist[distancias] + '\033[0m')
-                #print_blue(dist[distancias])
+
             elif distancias <= 3000:
                 print('\033[32m' + dist[distancias] + '\033[0m')
-                #print_green(dist[distancias])
+        
             elif distancias <= 6000:
                 print('\033[93m' + dist[distancias] + '\033[0m')
-                #print_yellow(dist[distancias])
+        
             elif distancias <= 9000:
                 print('\033[33m' + dist[distancias] + '\033[0m')
-                #print_orange(dist[distancias])
+        
             elif distancias <= 12000:
                 print('\033[31m' + dist[distancias] + '\033[0m')
-                #print_red(dist[distancias])
+
             elif distancias > 12000:
                 print('\033[35m' + dist[distancias] + '\033[0m')
-                #print_purple(dist[distancias])
 
     print('')
 
