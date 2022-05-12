@@ -16,7 +16,7 @@ EARTH_RADIUS = 6371
 gameon = True
 while gameon:
 
-    inventario = {'distancias':{}, 'dicas': {'cor da bandeira':[], 'letras da capital':[], ''}}
+    inventario = {'distancias':{}, 'dicas': {'cor da bandeira':[], 'Letra da capital':[], 'area':'','populacao':'','continente':''}}
 
     tentivas = 20
     sorteado = random.choice(todospaises)
@@ -130,7 +130,7 @@ while gameon:
             if dica_escolhida=='0':
                 tentivas-=4
                 
-                inventario['dicas']['Cor da Bandeira'].append(bandeira_lista[cont_bandeira])
+                inventario['dicas']['cor da bandeira'].append(bandeira_lista[cont_bandeira])
                 cont_bandeira+=1
                 if cont_bandeira==len(bandeira_lista)-1:
                     del dic_dicas['Cor da bandeira']

@@ -107,16 +107,16 @@ def printinventario(inv):
     print('')
 
     print('Dicas:')
-    if dics != {}:
-        for i in dics.keys():
-            if i=='Letra da capital':
-                a=','.join(inv['dicas'][i])
-            if i=='Cor da Bandeira' and dics[i]!=[]:
-                print(dics[i])
-            else:
-                a=inv['dicas'][i] 
-            print(i,a)
-
+    if dics['cor da bandeira']!=[]:
+        print('cores da bandeira',dics['cor da bandeira'])
+    if dics['Letra da capital']!=[]:
+        print('letras da capital',dics['Letra da capital'])
+    if dics['area']!='':
+        print('area',dics['area'])
+    if dics['populacao']!='':
+        print('populacao ',dics['populacao'])
+    if dics['continente']!='':
+        print('continente',dics['continente'])
     print('')
 
 def jogar_denovo():
