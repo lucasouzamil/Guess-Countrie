@@ -28,9 +28,14 @@ while gameon:
     print(DADOS_normalizados[sorteado])
 
     bandeira={}
+    bandeira_lista=[]
+    bandeira_sorteado_lista=[]
+    cont_bandeira=0
+    inventario['dicas']['Cor da Bandeira']=[]
     for i in DADOS_normalizados[sorteado]['bandeira'].keys(): # excluindo valores iguais a 0
-        if DADOS_normalizados[sorteado]['bandeira'][i]>0 and i!='outros':
+        if DADOS_normalizados[sorteado]['bandeira'][i]>0 and i!='outros' and i!='outras':
             bandeira[i]=DADOS_normalizados[sorteado]['bandeira'][i]
+            bandeira_lista.append(i)
     capital=DADOS_normalizados[sorteado]['capital'] # Achando a capital
     area=DADOS_normalizados[sorteado]['area']#achando a area
     populacao=DADOS_normalizados[sorteado]['populacao']#achando a populacao
@@ -124,8 +129,12 @@ while gameon:
                     break
             if dica_escolhida=='0':
                 tentivas-=4
-                inventario['dicas']['Cor da Bandeira']=dic_dicas['Cor da bandeira']['informacoes']
-              
+                
+                inventario['dicas']['Cor da Bandeira'].append(bandeira_lista[cont_bandeira])
+                cont_bandeira+=1
+                if cont_bandeira==len(bandeira_lista)-1:
+                    del dic_dicas['Cor da bandeira']
+
             if dica_escolhida=='1':
                 tentivas-=3
                 letra=fcss.sorteia_letra(capital,letras_sorteadas).lower()
@@ -134,15 +143,15 @@ while gameon:
             if dica_escolhida=='2':
                 tentivas-=6
                 inventario['dicas']['area']=area
-              
+                del dic_dicas['Area']
             if dica_escolhida=='3':
                 tentivas-=5
                 inventario['dicas']['populacao']=populacao
-                
+                del dic_dicas['Populacao']
             if dica_escolhida=='4':
                 tentivas-=7
                 inventario['dicas']['continente']=continente
-            
+                del dic_dicas['Continente']
             fcss.printinventario(inventario)
 
         else:

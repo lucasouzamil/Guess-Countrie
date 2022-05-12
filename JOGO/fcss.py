@@ -111,6 +111,8 @@ def printinventario(inv):
         for i in dics.keys():
             if i=='Letra da capital':
                 a=','.join(inv['dicas'][i])
+            if i=='Cor da Bandeira' and dics[i]!=[]:
+                print(dics[i])
             else:
                 a=inv['dicas'][i]
             print(i,a)
