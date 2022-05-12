@@ -16,7 +16,7 @@ EARTH_RADIUS = 6371
 gameon = True
 while gameon:
 
-    inventario = {'distancias':{}, 'dicas': {}}
+    inventario = {'distancias':{}, 'dicas': {'cor da bandeira':[], 'letras da capital':[], ''}}
 
     tentivas = 20
     sorteado = random.choice(todospaises)

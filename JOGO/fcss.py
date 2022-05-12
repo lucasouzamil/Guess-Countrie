@@ -114,7 +114,7 @@ def printinventario(inv):
             if i=='Cor da Bandeira' and dics[i]!=[]:
                 print(dics[i])
             else:
-                a=inv['dicas'][i]
+                a=inv['dicas'][i] 
             print(i,a)
 
     print('')
