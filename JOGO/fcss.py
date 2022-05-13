@@ -108,9 +108,9 @@ def printinventario(inv):
 
     print('Dicas:')
     if dics['cor da bandeira']!=[]:
-        print('cores da bandeira',dics['cor da bandeira'])
+        print('cores da bandeira:',(',').join(dics['cor da bandeira']))
     if dics['Letra da capital']!=[]:
-        print('letras da capital',dics['Letra da capital'])
+        print('letras da capital:',(',').join(dics['Letra da capital']))
     if dics['area']!='':
         print('area',dics['area'])
     if dics['populacao']!='':
