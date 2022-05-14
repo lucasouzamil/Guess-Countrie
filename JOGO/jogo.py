@@ -25,8 +25,6 @@ while gameon:
     latsorteado = DADOS_normalizados[sorteado]['geo']['latitude']
     longsorteado = DADOS_normalizados[sorteado]['geo']['longitude']
 
-    print(DADOS_normalizados[sorteado])
-
     bandeira={}
     bandeira_lista=[]
     bandeira_sorteado_lista=[]
@@ -50,17 +48,19 @@ while gameon:
 
 
     fcss.template()
+    print('Você tem' +  '\033[94m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)')
+    print('')
 
 
     while tentivas > 0:
 
         resposta = input('Qual seu palpite? ')
         resposta = resposta.lower()
-        print(resposta)
         print('')
 
         if resposta == sorteado: #ganhou
-            print('Parabens voce acertou')
+            print('   Y O U    G U E S S    I T !')
+            print('             PARABÉNS          ')
             print('')
             gameon=fcss.jogar_denovo()
             break
@@ -86,6 +86,15 @@ while gameon:
             fcss.printinventario(inventario)
 
             tentivas -= 1  
+
+            if tentivas <= 5:
+                print('Você tem' +  '\033[31m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #vemelho
+            elif tentivas <= 10:
+                print('Você tem' +  '\033[33m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #AMARELO
+            elif tentivas <= 20:
+                print('Você tem' +  '\033[94m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #AZUL
+            
+            print('')
 
         elif resposta == 'inventario':
             fcss.printinventario(inventario)
@@ -114,17 +123,26 @@ while gameon:
                 break
 
 
-        elif resposta == 'dica':
+        elif resposta == 'dica' or resposta == 'dicas':
             #achando quais sao as dicas possiveis de serem compradas
             dic_dicas_possiveis={}
+            numeros = '['
+            print(f'MERCADO DE DICAS        tentativas: {tentivas}')
+            print('--------------------------------------')
             for i in dic_dicas.keys():
                 if dic_dicas[i]['custo']<tentivas:
-                    print('{0}:{1} ----> {2} tentativas'.format(dic_dicas[i]['numero'],i,dic_dicas[i]['custo']))
+                    print('{0}: {1} ----> {2} tentativas'.format(dic_dicas[i]['numero'],i,dic_dicas[i]['custo']))
+                    numeros = numeros + str(dic_dicas[i]['numero']) + '|'
                     dic_dicas_possiveis[i]=dic_dicas[i]['numero']
+            numeros = numeros + '5]'
             print('5: Sem dicas')
             dica_escolhida=''
+            print('--------------------------------------')
+            print('Escolha sua opcao: ' + numeros)
             while dica_escolhida not in dic_dicas_possiveis.values():
-                dica_escolhida = input('Dica escolhida?' )
+                print('')
+                dica_escolhida = input('Dica escolhida? ' )
+                print('')
                 if dica_escolhida in dic_dicas_possiveis.values() or dica_escolhida=='5':
                     break
             if dica_escolhida=='0':
@@ -154,5 +172,20 @@ while gameon:
                 del dic_dicas['Continente']
             fcss.printinventario(inventario)
 
+            if tentivas > 0 and dica_escolhida != '5':
+
+                if tentivas <= 5:
+                    print('Você tem' +  '\033[31m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #vemelho
+                elif tentivas <= 10:
+                    print('Você tem' +  '\033[33m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #AMARELO
+                elif tentivas <= 20:
+                    print('Você tem' +  '\033[34m' + ' ' + str(tentivas) + ' ' + '\033[0m' + 'tentativa(s)') #AZUL
+            
+            print('')
+
         else:
             print('Esse pais nao existe\n')
+
+        if tentivas == 0:
+            print(f'Você perdeu, o país era: {sorteado}')
+            gameon = fcss.jogar_denovo()

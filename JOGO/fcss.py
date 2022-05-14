@@ -87,50 +87,50 @@ def printinventario(inv):
     if dist != {}:
         for distancias in distanciasemordem:
             if distancias <= 1200:
-                print('\033[34m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[34m' + dist[distancias] + '\033[0m')
 
             elif distancias <= 3000:
-                print('\033[32m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[32m' + dist[distancias] + '\033[0m')
         
             elif distancias <= 6000:
-                print('\033[93m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[93m' + dist[distancias] + '\033[0m')
         
             elif distancias <= 9000:
-                print('\033[33m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[33m' + dist[distancias] + '\033[0m')
         
             elif distancias <= 12000:
-                print('\033[31m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[31m' + dist[distancias] + '\033[0m')
 
             elif distancias > 12000:
-                print('\033[35m' + dist[distancias] + '\033[0m')
+                print('  -'+'\033[35m' + dist[distancias] + '\033[0m')
 
     print('')
 
     print('Dicas:')
     if dics['cor da bandeira']!=[]:
-        print('cores da bandeira:',(', ').join(dics['cor da bandeira']))
+        print('  -Cores da banderira: ',(', ').join(dics['cor da bandeira']))
     if dics['Letra da capital']!=[]:
-        print('letras da capital:',(', ').join(dics['Letra da capital']))
+        print('  -Letras da capital: ',(', ').join(dics['Letra da capital']))
     if dics['area']!='':
-        print('area',dics['area'])
+        print('  -Área: ',dics['area'],'km2')
     if dics['populacao']!='':
-        print('populacao ',dics['populacao'])
+        print('  -Populacao:',dics['populacao'], 'habitantes')
     if dics['continente']!='':
-        print('continente',dics['continente'])
+        print('  -Continente:',dics['continente'])
     print('')
 
 def jogar_denovo():
-    a=input('deseja jogar denovo(s/n)')
+    a=input('Deseja jogar denovo? (s/n): ')
     print('')
     while a!='s' and a!='n':
         print('a escolha deve ser s ou n')
         print('')
-        a=input('Deseja jogar denovo?(s/n)')  
+        a=input('Deseja jogar denovo? (s/n): ')  
         print('') 
     if a =='s':
         return True
     if a=='n':
-        print('Até a proxima')
+        print('Até a proxima!')
         print('')
         return False
 
