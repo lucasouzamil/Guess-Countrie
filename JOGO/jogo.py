@@ -20,7 +20,6 @@ while gameon:
 
     tentivas = 20
     sorteado = random.choice(todospaises)
-    print(sorteado)
 
     latsorteado = DADOS_normalizados[sorteado]['geo']['latitude']
     longsorteado = DADOS_normalizados[sorteado]['geo']['longitude']
