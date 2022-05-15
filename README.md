@@ -3,8 +3,7 @@
 Projeto - Design de software/Insper - 2022.1 - Turma A
 
 **MEMBROS**  
-Lucas Fernando de Souza Lima\n
-Gustavo Paulino
+Lucas Fernando de Souza Lima, Gustavo Paulino
 
 **Linguagem utilizada**  
 Python
